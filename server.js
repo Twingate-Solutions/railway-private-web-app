@@ -1,5 +1,10 @@
 const express = require("express");
+const path = require("path");
+
 const app = express();
+
+// Serve static files from the root directory (logo.svg lives here)
+app.use(express.static(path.join(__dirname)));
 
 // Simple HTML page
 const html = `
@@ -20,6 +25,7 @@ const html = `
       height: 100vh;
       margin: 0;
     }
+
     .card {
       background: #020617;
       border-radius: 12px;
@@ -27,20 +33,47 @@ const html = `
       text-align: center;
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
       max-width: 420px;
+      animation: subtle-bounce 1.2s ease-out;
     }
-    img {
-      width: 160px;
+
+    @keyframes subtle-bounce {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      60% {
+        transform: translateY(-6px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .logo-wrapper {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      display: inline-block;
       margin-bottom: 24px;
     }
+
+    img {
+      width: 160px;
+      display: block;
+    }
+
     h1 {
       font-size: 22px;
       margin-bottom: 12px;
     }
+
     p {
       font-size: 15px;
       line-height: 1.5;
       color: #9ca3af;
     }
+
     .emoji {
       font-size: 24px;
       margin-top: 16px;
@@ -49,7 +82,9 @@ const html = `
 </head>
 <body>
   <div class="card">
-    <img src="logo.svg" alt="Twingate Logo" />
+    <div class="logo-wrapper">
+      <img src="/logo.svg" alt="Twingate Logo" />
+    </div>
     <h1>Private Access Confirmed!</h1>
     <p>
       If you are seeing this, you are accessing me <strong>privately</strong>.
@@ -71,7 +106,6 @@ app.get("/healthz", (_req, res) => {
 });
 
 // Port handling
-// Default to 80, but allow override via env
 const port = process.env.PORT ? Number(process.env.PORT) : 80;
 
 app.listen(port, "0.0.0.0", () => {

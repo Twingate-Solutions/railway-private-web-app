@@ -53,9 +53,9 @@ const html = `
     .logo-wrapper {
       background: #ffffff;
       border-radius: 8px;
-      padding: 10px;
+      padding: 10px 20px 10px 20px;
       display: inline-block;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
     }
 
     img {

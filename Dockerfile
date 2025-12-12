@@ -6,10 +6,10 @@ RUN npm ci --omit=dev || npm install --omit=dev
 
 COPY server.js ./
 
-ENV PORT=3000
-EXPOSE 3000
+# Default to 80 if upstream doesn't provide PORT at runtime
+ENV PORT=80
 
-# non-root
+# non-root user
 RUN addgroup -S app && adduser -S app -G app
 USER app
 

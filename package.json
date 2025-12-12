@@ -1,0 +1,24 @@
+{
+  "name": "railway",
+  "version": "1.0.0",
+  "description": "Connector and basic nodejs web app for private access in Railway",
+  "homepage": "https://github.com/Twingate-Solutions/railway#readme",
+  "bugs": {
+    "url": "https://github.com/Twingate-Solutions/railway/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Twingate-Solutions/railway.git"
+  },
+  "license": "ISC",
+  "author": "gbern-tg",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

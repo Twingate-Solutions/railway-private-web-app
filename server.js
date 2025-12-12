@@ -53,13 +53,13 @@ const html = `
     .logo-wrapper {
       background: #ffffff;
       border-radius: 8px;
-      padding: 16px;
+      padding: 10px;
       display: inline-block;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     img {
-      width: 160px;
+      width: 40px;
       display: block;
     }
 
